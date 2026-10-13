@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><title>Opening…</title>
+<style>body{font:17px/1.4 -apple-system,system-ui,sans-serif;background:#08252D;color:#F3F8F6;display:flex;min-height:100vh;align-items:center;justify-content:center;margin:0;padding:24px;text-align:center}a{color:#B7E36A}</style>
+</head><body><div id="m">Opening…</div>
+<script>
+// One address that never changes. It reads where the app is right now and goes there.
+fetch("link.json?t=" + Date.now(), { cache: "no-store" }).then(function (r) { return r.json(); }).then(function (d) {
+  var u = d["real"]; if (!u) throw new Error("no address");
+  location.replace(u.replace(/\/+$/, "") + "/field");
+}).catch(function () {
+  document.getElementById("m").innerHTML = "The app is not answering right now. The laptop it runs on may be asleep.<br><br><a href=''>Try again</a>";
+});
+</script></body></html>
